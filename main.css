@@ -1,0 +1,73 @@
+html {
+  font-size: 10px;
+}
+
+body {
+  transition: 0.5s;
+}
+
+#main-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-container {
+  width: 500px;
+  border: 2px solid #888888;
+  padding: 20px;
+  border-radius: 20px;
+  align-items: center;
+}
+
+.container-active {
+  background-color: black;
+  color: orange;
+}
+
+/* 버튼 style 시작 */
+.mode-area {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dark-btn {
+  width: 70px;
+  height: 30px;
+  margin: 20px 40px 10px;
+  background-color: black;
+  border-radius: 10px;
+  border: none;
+  color: orange;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.btn-active {
+  background-color: rgb(51, 230, 155);
+  color: white;
+}
+/* 버튼 style 끝 */
+
+/* 검색 style 시작 */
+#search-box {
+  width: 500px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid #bbbbbb;
+}
+
+.search-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0px 20px;
+}
+
+.item {
+  font-size: 1.6rem;
+  margin: 10px;
+  font-weight: bold;
+}
+/* 검색 style 끝 */
