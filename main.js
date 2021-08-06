@@ -5,14 +5,32 @@ const searchBox = document.querySelector("#search-box");
 const items = document.querySelectorAll(".item");
 //검색 결과
 const result = document.querySelector(".result");
-// 다크 모드 버튼
 const darkModeButton = document.querySelector(".dark-btn");
-// 바디
 const body = document.querySelector("body");
+
+let itemList = [];
+let resultCount = 0;
+
+// Q: 저장과 정렬 구가지 일을 하는데 이것도 메서드를 나눠야 할지
+// 항목 정렬 메서드
+function saveList(){
+  for(let index = 0; index < items.length; index++){
+    itemList.push(items[index].textContent);
+  }
+  itemList.sort();
+}
+
+// 리스트 출력 메서드
+function displayList(){
+  console.log(itemList);
+  for(let index = 0; index < items.length; index++){
+    items[index].innerHTML = itemList[index];
+  }
+}
 
 // 검색 메서드
 function searchBoxOnKeyUp(){
-    let resultCount = 0;
+    resultCount = 0;
     for(let index = 0; index < items.length; index++){
         const animalName = items[index].textContent;
         // 검색 결과가 없을 경우
@@ -40,5 +58,10 @@ function darkModeButtonOnClick(){
   body.classList.toggle("container-active");
 }
 
+// 시작 직후 정렬 후 출력
+saveList();
+displayList();
+
 searchBox.addEventListener("keyup", searchBoxOnKeyUp);
+searchBox.addEventListener("keyup", displayList);
 darkModeButton.addEventListener("click", darkModeButtonOnClick);
