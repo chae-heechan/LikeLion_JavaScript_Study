@@ -11,7 +11,6 @@ const body = document.querySelector("body");
 let itemList = [];
 let resultCount = 0;
 
-// Q: 저장과 정렬 구가지 일을 하는데 이것도 메서드를 나눠야 할지
 // 항목 정렬 메서드
 function saveList(){
   for(let index = 0; index < items.length; index++){
