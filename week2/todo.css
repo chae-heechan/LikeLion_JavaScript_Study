@@ -44,6 +44,9 @@ body {
 .item-input-box {
   width: 600px;
   height: 30px;
+  font-family: "NanumSquare";
+  font-size: 2rem;
+  color: rgb(135, 135, 228);
   border-radius: 10px;
   border: 1px solid #bbbbbb;
 }
