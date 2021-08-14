@@ -19,15 +19,16 @@ const enterInput = () =>{
   item.classList.add("item");
   item.innerHTML = inputBox.value;
   checkBox.classList.add("check-box");
-  
 
   itemBox.appendChild(checkBox);
   itemBox.appendChild(item);
   list.appendChild(itemBox);
+  // input-box 내용 지우기
 }
 
 function clickCheckBox(){
-  
+  // 클릭시 item에 취소선 클래스 추가
+  // 이 부분 다시 설계 해야함
 }
 
 checkBox.addEventListener("click", clickCheckBox);
