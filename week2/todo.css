@@ -82,6 +82,10 @@ input:focus {
   border: 1px solid #bbbbbb;
 }
 
+.item-box img:hover {
+  cursor: pointer;
+}
+
 button:focus {
   outline: none;
 }
@@ -91,6 +95,11 @@ button:focus {
   height: 25px;
   margin: 0px 5px;
   border-radius: 50px;
+}
+
+.cancellation-line {
+  color: #c4c4c4;
+  text-decoration: line-through;
 }
 
 .item {
