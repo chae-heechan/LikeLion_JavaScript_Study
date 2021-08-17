@@ -15,21 +15,39 @@ body {
   margin: 0px;
 }
 
+/* header 시작 */
 #header {
   height: 50px;
+  display: flex;
+  align-items: center;
   background-color: rgb(135, 135, 228);
   border: none;
+  box-shadow: 5px 5px 5px #bbbbbb;
+  z-index: 100;
+}
+
+.header-icon {
+  width: 30px;
+  height: 30px;
+  margin-left: 30px;
 }
 
 #main {
   display: flex;
-  justify-content: center;
 }
 
 .logo {
   color: white;
   font-size: 30px;
   margin: 0px 100px;
+}
+/* header 끝 */
+
+/* left-nav-bar 시작 */
+#left-nav {
+  width: 350px;
+  height: 1000px;
+  box-shadow: 5px 5px 5px #bbbbbb;
 }
 
 .main-container {
