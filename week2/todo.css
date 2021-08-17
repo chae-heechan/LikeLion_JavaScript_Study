@@ -1,8 +1,8 @@
 @font-face {
-  font-family: "NanumSquare";
-  src: url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css")
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
     format("woff");
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -45,11 +45,53 @@ body {
 
 /* left-nav-bar 시작 */
 #left-nav {
+  padding-top: 10px;
   width: 350px;
   height: 1000px;
   box-shadow: 5px 5px 5px #bbbbbb;
 }
 
+.left-nav-item {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 20px;
+  padding: 0px 10px;
+  border-radius: 10px;
+}
+
+.left-nav-item-active {
+  background-color: rgb(193, 193, 226);
+}
+
+.left-nav-left-area {
+  display: flex;
+  align-items: center;
+}
+
+.left-nav-img {
+  display: flex;
+  justify-content: center;
+  width: 30px;
+  color: rgb(135, 135, 228);
+  font-size: 3rem;
+}
+
+.left-nav-title {
+  font-family: "Pretendard-Regular";
+  color: #444444;
+  font-size: 2rem;
+  padding-left: 20px;
+}
+
+.left-nav-count {
+  font-family: "Pretendard-Regular";
+  color: #444444;
+  font-size: 2rem;
+}
+/* left-nav-bar 끝 */
+/* main-container 시작 */
 .main-container {
   width: 1000px;
   margin: 50px;
@@ -59,7 +101,7 @@ body {
 }
 
 .top-title {
-  font-family: "NanumSquare";
+  font-family: "Pretendard-Regular";
   font-size: 3.6rem;
   font-weight: bold;
   color: rgb(135, 135, 228);
@@ -79,7 +121,7 @@ input:focus {
 .item-input-box {
   width: 500px;
   height: 30px;
-  font-family: "NanumSquare";
+  font-family: "Pretendard-Regular";
   font-size: 2rem;
   color: white;
   background-color: rgb(135, 135, 228);
@@ -93,7 +135,7 @@ input:focus {
   margin-top: 20px;
   display: flex;
   align-items: center;
-  font-family: "NanumSquare";
+  font-family: "Pretendard-Regular";
   font-size: 2rem;
   color: rgb(135, 135, 228);
   border-radius: 10px;
