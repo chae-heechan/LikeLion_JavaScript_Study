@@ -30,7 +30,7 @@ const enterInput = () =>{
   item.innerHTML = inputBox.value;
   checkBox.classList.add("check-box");
   checkBox.src = img[0].file;
-  checkBox.setAttribute('onclick', "clickCheckBox()"); // <img onclick = click()>
+  checkBox.setAttribute('onclick', "clickCheckBox()"); // <img onclick = clickCheckBox()>
   console.log(checkBox);
 
   itemBox.appendChild(checkBox);
@@ -56,5 +56,3 @@ function clickCheckBox(){
 
   }
 }
-
-// checkBox.addEventListener("click", clickCheckBox);

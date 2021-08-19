@@ -34,6 +34,7 @@ body {
 
 #main {
   display: flex;
+  height: auto;
 }
 
 .logo {
@@ -89,6 +90,11 @@ body {
   font-family: "Pretendard-Regular";
   color: #444444;
   font-size: 2rem;
+}
+
+.left-nav-bar-middle-border {
+  margin: 20px 20px;
+  border-bottom: 2px solid #dddddd;
 }
 /* left-nav-bar 끝 */
 /* main-container 시작 */
