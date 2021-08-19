@@ -56,31 +56,29 @@
             <!-- user-category 시작 -->
             <div class="user-category">
                 <div class="left-nav-item left-nav-item-active">
-                    <input type="text" id="input-category" placeholder="새 목록">
+                    <input type="text" id="input-category" placeholder="새 목록" onkeyup="isEnterForList()">
+                </div>
+                <div id="user-list">
+                
                 </div>
             </div>
-<<<<<<< HEAD
-            <div class="left-nav-bar-middle-border"></div>
-            <div id="user-list">
-                
-            </div>
-=======
-            <!-- user-category 끝 -->
->>>>>>> db08350329de70f865fc1bafd4edd4a8c8068f6f
         </div>
         <!-- left-nav-bar 끝 -->
-        <!-- main-container 시작 -->
-        <div class="main-container">
-            <div class="container-top-area">
-                <p class="top-title">My Day</p>
-            </div>
-            <div class="todo-list">
-                <input type="text" id="input-box" class="list-item item-input-box" onkeyup="isEnter()">
-                <div id="list">
-                    
+        <!-- center-area 시작 -->
+        <div class="center-area">
+            <div class="main-container">
+                <div class="container-top-area">
+                    <p class="top-title">My Day</p>
+                </div>
+                <div class="todo-list">
+                    <input type="text" id="input-box" class="list-item item-input-box" onkeyup="isEnter()">
+                    <div id="list">
+                        
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- center-area 끝 -->
     </div>
     <!-- main 끝 -->
 </body>

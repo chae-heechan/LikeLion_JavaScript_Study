@@ -5,43 +5,88 @@ const img = [
   },
   {
     file : 'checkBoxActive.png'
+  },
+  {
+    file : 'blueMenu.png'
   }
 ]
 
-const inputBox = document.querySelector("#input-box");
+const listInputBox = document.querySelector("#input-category");
+const itemInputBox = document.querySelector("#input-box");
 const list = document.querySelector("#list");
-let checkBox = document.querySelector(".check-box");
+const userList = document.querySelector("#user-list");
 
-// 엔터 검사 메서드
+// item 엔터 검사 메서드
 const isEnter = () =>{
-  if (window.event.keyCode == 13 && inputBox.value != ""){
+  if (window.event.keyCode == 13 && itemInputBox.value != ""){
     enterInput();
   }
 }
 
+// list 엔터 검사 메서드
+const isEnterForList = () =>{
+  if (window.event.keyCode == 13 && listInputBox.value != ""){
+    enterCategory();
+  }
+}
+
+// category 추가 메서드
+const enterCategory = () =>{
+  const leftNavItem = document.createElement('div');
+  const leftNavLeftArea = document.createElement('div');
+  const leftNavImg = document.createElement('img');
+  const leftNavTitle = document.createElement('div');
+  const leftNavcount = document.createElement('div');
+
+  leftNavImg.src = img[2].file;   // 메뉴 이미지
+  leftNavTitle.innerHTML = listInputBox.value;
+
+  leftNavItem.classList.add("left-nav-item");
+  leftNavLeftArea.classList.add("left-nav-left-area");
+  leftNavImg.classList.add("left-nav-img");
+  leftNavTitle.classList.add("left-nav-title");
+  leftNavcount.classList.add("left-nav-count");
+
+  leftNavLeftArea.appendChild(leftNavImg);
+  leftNavLeftArea.appendChild(leftNavTitle);
+  leftNavItem.appendChild(leftNavLeftArea);
+  leftNavItem.appendChild(leftNavcount);
+  userList.appendChild(leftNavItem);
+  // input-box 내용 지우기
+  listInputBox.value = "";
+}
+
 // item 추가 메서드
 const enterInput = () =>{
+
   const itemBox = document.createElement('div');
   const item = document.createElement("p");
   const checkBox = document.createElement("img");
+  saveItemsInLocal();
 
   itemBox.classList.add("item-box");
   item.classList.add("item");
-  item.innerHTML = inputBox.value;
+  item.innerHTML = itemInputBox.value;
   checkBox.classList.add("check-box");
-  checkBox.src = img[0].file;
+  checkBox.src = img[0].file;   // 빈 체크박스 이미지
   checkBox.setAttribute('onclick', "clickCheckBox()"); // <img onclick = clickCheckBox()>
-  console.log(checkBox);
 
   itemBox.appendChild(checkBox);
   itemBox.appendChild(item);
   list.appendChild(itemBox);
   // input-box 내용 지우기
-  inputBox.value = "";
-
-  // checkBox = document.querySelector(".check-box");
+  itemInputBox.value = "";
 }
 
+// 할일 로컬 저장소에 저장 메서드
+function saveItemsInLocal(){
+  let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []; 
+
+  itemsArray.push(itemInputBox.value); 
+  localStorage.setItem('items', JSON.stringify(itemsArray));
+}
+
+// 체크 박스 모양 변경 메서드
 function clickCheckBox(){
   const parentDiv = event.target.parentNode;
 
