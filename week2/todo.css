@@ -132,6 +132,12 @@ body {
   align-items: center;
 }
 
+.container-top-area {
+  width: 700px;
+  display: flex;
+  justify-content: flex-start;
+}
+
 .top-title {
   font-family: "Pretendard-Regular";
   font-size: 3.6rem;
@@ -150,6 +156,25 @@ input:focus {
   outline: none;
 }
 
+.list-input-area {
+  width: 700px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(135, 135, 228);
+  border-radius: 10px;
+}
+
+#date-input {
+  height: 30px;
+  border: none;
+  font-family: "Pretendard-Regular";
+  font-size: 1.5rem;
+  color: white;
+  background-color: rgb(135, 135, 228);
+}
+
 .item-input-box {
   width: 500px;
   height: 30px;
@@ -157,16 +182,16 @@ input:focus {
   font-size: 2rem;
   color: white;
   background-color: rgb(135, 135, 228);
-  border-radius: 10px;
   border: 4px solid rgb(135, 135, 228);
 }
 
 .item-box {
-  width: 500px;
+  width: 700px;
   height: 30px;
   margin-top: 20px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   font-family: "Pretendard-Regular";
   font-size: 2rem;
   color: rgb(135, 135, 228);
@@ -182,16 +207,21 @@ button:focus {
   outline: none;
 }
 
-.check-box {
+.item-img {
   width: 25px;
   height: 25px;
   margin: 0px 5px;
-  border-radius: 50px;
 }
 
 .cancellation-line {
   color: #c4c4c4;
   text-decoration: line-through;
+}
+
+.item-area {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
 }
 
 .item {
@@ -201,4 +231,9 @@ button:focus {
 
 .item-delete {
   text-decoration: line-through;
+}
+
+.date {
+  margin-right: 35px;
+  font-size: 1.6rem;
 }

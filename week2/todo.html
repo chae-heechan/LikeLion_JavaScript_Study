@@ -27,7 +27,7 @@
                         <div class="left-nav-img">🌞</div>
                         <div class="left-nav-title">오늘 할 일</div>
                     </div>
-                    <div class="left-nav-count">1</div>
+                    <div id="today-count" class="left-nav-count">1</div>
                 </div>
                 <div class=" left-nav-item">
                     <div class="left-nav-left-area">
@@ -68,10 +68,13 @@
         <div class="center-area">
             <div class="main-container">
                 <div class="container-top-area">
-                    <p class="top-title">My Day</p>
+                    <p class="top-title">오늘 할 일</p>
                 </div>
-                <div class="todo-list">
-                    <input type="text" id="input-box" class="list-item item-input-box" onkeyup="isEnter()">
+                <div class="todo-list" onsubmit="return false">
+                    <form class="list-input-area">
+                        <input type="text" id="input-box" class="list-item item-input-box" autocomplete="off" onkeyup="isEnter()">
+                        <input type="date" id="date-input" required>
+                    </form>
                     <div id="list">
                         
                     </div>
