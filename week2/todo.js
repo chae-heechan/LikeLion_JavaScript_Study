@@ -13,6 +13,7 @@ const list = document.querySelector("#list");
 const userList = document.querySelector("#user-list");
 const dateInput = document.querySelector("#date-input");
 const todayCount = document.querySelector("#today-count");
+let categortName = "today";
 
 // item 엔터 검사 메서드
 const isEnter = () =>{
@@ -56,36 +57,17 @@ const enterCategory = () =>{
 
 // item 추가 메서드
 const enterInput = () =>{
-  const itemBox = document.createElement('div');
-  const leftItemArea = document.createElement('div');
-  const rightItemArea = document.createElement('div');
-  const item = document.createElement("p");
-  const checkBox = document.createElement("img");
-  const date = document.createElement("p");
-  const star = document.createElement("img");
+  // 로컬 스터리지에 저장
   saveItemsInLocal();
 
-  itemBox.classList.add("item-box");
-  leftItemArea.classList.add("item-area");
-  rightItemArea.classList.add("item-area");
-  item.classList.add("item");
-  item.innerHTML = itemInputBox.value;
-  checkBox.classList.add("item-img");
-  checkBox.src = img[0].file;   // 빈 체크박스 이미지
-  checkBox.setAttribute('onclick', "clickCheckBox()"); // <img onclick = clickCheckBox()>
-  date.classList.add("date");
-  date.innerHTML = dateInput.value;
-  star.classList.add("item-img");
-  star.src = img[3].file;
-  star.setAttribute('onclick', "clickStar()");  // <img onclick = clickStar()>
+  // list 초기화
+  while (list.hasChildNodes()){
+    list.removeChild(list.firstChild);
+  }
 
-  leftItemArea.appendChild(checkBox);
-  leftItemArea.appendChild(item);
-  itemBox.appendChild(leftItemArea);
-  rightItemArea.appendChild(date);
-  rightItemArea.appendChild(star);
-  itemBox.appendChild(rightItemArea);
-  list.appendChild(itemBox);
+  // 할 일 불러오기
+  loadItems();
+
   // input-box 내용 지우기
   itemInputBox.value = "";
   // 오늘 날짜 세팅
@@ -103,23 +85,64 @@ function setCategoryCount(){
 // 오늘 날짜 세팅 메서드
 function setCurrentDate(){
   document.querySelector("#date-input").value= new Date().toISOString().slice(0, 10);
-  
 }
 
 // 할일 불러오기 메서드
-function loaditems(){
-  let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []; 
+function loadItems(){
+  let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+  for(let i=0; i<itemsArray.length; i++){
+    const itemBox = document.createElement('div');
+    const leftItemArea = document.createElement('div');
+    const rightItemArea = document.createElement('div');
+    const item = document.createElement("p");
+    const checkBox = document.createElement("img");
+    const date = document.createElement("p");
+    const star = document.createElement("img");
+
+    itemBox.classList.add("item-box");
+    leftItemArea.classList.add("item-area");
+    rightItemArea.classList.add("item-area");
+    item.classList.add("item");
+    item.innerHTML = Object.keys(itemsArray[i]);
+    checkBox.classList.add("item-img");
+    checkBox.src = img[0].file;   // 빈 체크박스 이미지
+    checkBox.setAttribute('onclick', "clickCheckBox()"); // <img onclick = clickCheckBox()>
+    date.classList.add("date");
+    date.innerHTML = Object.values(itemsArray[i]);
+    star.classList.add("item-img");
+    star.src = img[3].file;   // 빈 별 이미지
+    star.setAttribute('onclick', "clickStar()");  // <img onclick = clickStar()>
+
+    leftItemArea.appendChild(checkBox);
+    leftItemArea.appendChild(item);
+    itemBox.appendChild(leftItemArea);
+    rightItemArea.appendChild(date);
+    rightItemArea.appendChild(star);
+    itemBox.appendChild(rightItemArea);
+    list.appendChild(itemBox);
+  }
+}
+
+// 할일 정렬 메서드
+function sortItems(){
+  let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+  console.log(itemsArray);
+  itemsArray.sort(function(a, b){
+    console.log(a, b);
+    return a.value - b.value;
+  });
+  console.log(itemsArray);
 }
 
 // 할일 로컬 저장소에 저장 메서드
 function saveItemsInLocal(){
-  let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []; 
+  let itemsArray = localStorage.getItem(categoryName) ? JSON.parse(localStorage.getItem(categoryName)) : []; 
 
   const dict = {};
   dict[itemInputBox.value] = dateInput.value;
 
   itemsArray.push(dict);
-  localStorage.setItem('items', JSON.stringify(itemsArray));
+  localStorage.setItem(categoryName, JSON.stringify(itemsArray));
 }
 
 // 체크 박스 모양 변경 메서드
@@ -152,5 +175,5 @@ function clickStar(){
 }
 
 setCategoryCount();
-loaditems();
+loadItems();
 setCurrentDate();
