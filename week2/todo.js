@@ -123,6 +123,10 @@ function loadItems(){
   }
 }
 
+function clickCategory(){
+
+}
+
 // 할일 정렬 메서드
 function sortItems(){
   let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
@@ -136,12 +140,15 @@ function sortItems(){
 
 // 할일 로컬 저장소에 저장 메서드
 function saveItemsInLocal(){
-  let itemsArray = localStorage.getItem(categoryName) ? JSON.parse(localStorage.getItem(categoryName)) : []; 
+  let itemsArray = localStorage.getItem(categoryName) ? JSON.parse(localStorage.getItem(categoryName)) : [];
 
-  const dict = {};
-  dict[itemInputBox.value] = dateInput.value;
+  // const dict = {};
+  // dict[itemInputBox.value] = dateInput.value;
 
-  itemsArray.push(dict);
+  const tempList = [];
+  tempList.push(itemsArray.lenth, itemInputBox.value, dateInput.value);
+
+  itemsArray.push(tempList);
   localStorage.setItem(categoryName, JSON.stringify(itemsArray));
 }
 
